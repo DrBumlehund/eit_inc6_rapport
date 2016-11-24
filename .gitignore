@@ -178,3 +178,6 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# FUCK OSX FILES
+**.DS_Store

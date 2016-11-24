@@ -1,0 +1,67 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[top=2cm, bottom=1.5cm, outer=0.7cm, inner=.35cm, heightrounded, marginparwidth=0cm, marginparsep=.5cm, headsep=0.6cm, headheight=1cm, bindingoffset=.50cm, landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{subfiles}
+\usepackage{lipsum}
+%\usepackage{showframe}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{multicol}
+% Font
+\usepackage[default,light,bold]{sourceserifpro}
+\usepackage[T1]{fontenc}
+
+\usepackage{setspace}
+
+\renewcommand{\baselinestretch}{1.25} 
+
+\setlength{\columnsep}{20pt}
+
+
+
+\title{\huge{Expert in Teams E16 - Business Report}\\\Large{\textit{The Incubator Team 6}}\vfill}
+\author{
+\begin{tabular}{l|c|r}
+  Name: & Exam Number & E-Mail \\
+  \hline
+  Britt Møller Wamberg & 330707 & brwam13@student.sdu.dk \\
+  Casper Beese Nielsen & 409468 & casni14@student.sdu.dk \\
+  Emil Hundebøl & - & emhun14@student.sdu.dk \\
+  Mikkel Bæk Jørgensen & 410847 & mikjo14@student.sdu.dk \\
+  Thomas August Lemqvist & 410261 & thlem14@student.sdu.dk \\
+\end{tabular}
+}
+\begin{document}
+%pagesetup
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Team West/INC6 - EiT16-theme02}
+\lhead{\includegraphics[height=1cm]{images/sdu-header} Get Hooked}
+\rfoot{Page: \thepage\ }
+%frontpage
+\maketitle
+\addcontentsline{toc}{section}{Abstract}
+\abstract{\subfile{sections/abstract}}
+\thispagestyle{empty}
+%indledning
+\newpage
+\begin{multicols}{2}
+\tableofcontents	
+\end{multicols}
+\clearpage
+
+\begin{multicols}{2}
+\section{Test Section 1}
+\lipsum
+\section{Test Section 2}
+\blindtext
+\subsection{Test SubSection 1}
+\lipsum
+\subsection{Test SubSection 2}
+\lipsum
+\end{multicols}
+
+\end{document}
