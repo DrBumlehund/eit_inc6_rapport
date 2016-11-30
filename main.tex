@@ -10,6 +10,10 @@
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{multicol}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[titletoc,toc,title]{appendix}
+
 % Font
 \usepackage[default,light,bold]{sourceserifpro}
 \usepackage[T1]{fontenc}
@@ -20,16 +24,26 @@
 
 \setlength{\columnsep}{20pt}
 
+\definecolor{linkcol}{RGB}{42, 93, 176}
+%Package setup
+\hypersetup{
+colorlinks=true,
+linktoc=all,
+linkcolor=black,
+citecolor=magenta,
+urlcolor=linkcol,
+}
 
 
-\title{\huge{Expert in Teams E16 - Business Report}\\\Large{\textit{The Incubator Team 6}}\vfill}
+
+\title{\huge{Expert in Teams E16 - Business Report}\\\Large{\textit{The Incubator Team 6}}\vfill\includegraphics[width=0.3\textwidth]{images/logo}}
 \author{
 \begin{tabular}{l|c|r}
   Name: & Exam Number & E-Mail \\
   \hline
   Britt Møller Wamberg & 330707 & brwam13@student.sdu.dk \\
   Casper Beese Nielsen & 409468 & casni14@student.sdu.dk \\
-  Emil Hundebøl & - & emhun14@student.sdu.dk \\
+  Emil Hundebøl & 412060 & emhun14@student.sdu.dk \\
   Mikkel Bæk Jørgensen & 410847 & mikjo14@student.sdu.dk \\
   Thomas August Lemqvist & 410261 & thlem14@student.sdu.dk \\
 \end{tabular}
@@ -40,7 +54,7 @@
 \fancyhf{}
 \rhead{Team West/INC6 - EiT16-theme02}
 \lhead{\includegraphics[height=1cm]{images/sdu-header} Get Hooked}
-\rfoot{Page: \thepage\ }
+\rfoot{Page: \thepage\ of \pageref{end}}
 %frontpage
 \maketitle
 \addcontentsline{toc}{section}{Abstract}
@@ -54,14 +68,62 @@
 \clearpage
 
 \begin{multicols}{2}
-\section{Test Section 1}
-\lipsum
-\section{Test Section 2}
-\blindtext
-\subsection{Test SubSection 1}
-\lipsum
-\subsection{Test SubSection 2}
-\lipsum
+\section{Introduction}
+\label{sec:intro}
+\subfile{sections/introduction}
+
+\section{Problem Definition}
+\label{sec:problemDefinition}
+\subfile{sections/problemdefinition.tex}
+
+\section{Ideation}
+\label{sec:ideation}
+\subfile{sections/ideation.tex}
+
+\section{Market Analysis}
+\label{sec:marketanlysis}
+\subfile{sections/marketanalysis.tex}
+
+\section{Product Definition}
+\label{sec:productDefinition}
+\subfile{sections/productdefinition.tex}
+
+\section{Business Model}
+\label{sec:businessModel}
+\subfile{sections/businessmodel.tex}
+
+\section{Budget}
+\label{sec:budget}
+\subfile{sections/budget.tex}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\subfile{sections/conclusion.tex}
+
+\section{Reflection}
+\label{sec:reflection}
+\subfile{sections/reflection.tex}
+
+\addcontentsline{toc}{section}{References}
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{references.bib}
+
+\listoftables
+\listoffigures
+
+
+
 \end{multicols}
+\label{end}
+\newpage
+\section*{\Huge{Appendices}}
+
+\begin{appendices}
+  \renewcommand\thetable{\thesection\arabic{table}}
+  \renewcommand\thefigure{\thesection\arabic{figure}}
+  \section{Test Appendix A} \label{app:a}
+  \section{Test Appendix B} \label{app:b}
+\end{appendices}
 
 \end{document}
