@@ -16,6 +16,9 @@
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage[table,xcdraw]{xcolor}
 
+
+
+
 % Font
 \usepackage[default,light,bold]{sourceserifpro}
 \usepackage[T1]{fontenc}
@@ -24,7 +27,7 @@
 
 \renewcommand{\baselinestretch}{1.25} 
 
-\setlength{\columnsep}{20pt}
+\setlength{\columnsep}{60pt}
 
 \definecolor{linkcol}{RGB}{42, 93, 176}
 %Package setup
@@ -36,7 +39,14 @@ citecolor=magenta,
 urlcolor=linkcol,
 }
 
+% TOC Stuff
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
 
+\makeatletter
+\let\latexl@section\l@section
+\def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
+\makeatother
 
 \title{\huge{Expert in Teams E16 - Business Report}\\\Large{\textit{The Incubator Team 6}}\vfill\includegraphics[width=0.3\textwidth]{images/logo}}
 \author{
@@ -65,12 +75,12 @@ urlcolor=linkcol,
 %indledning
 \newpage
 \begin{multicols}{2}
+
 \tableofcontents
-\addtocontents{toc}{~\hfill\textbf{Page}\par}
-\chapter{...}	
+
 \end{multicols}
 \clearpage
-
+\setlength{\columnsep}{20pt}
 \begin{multicols}{2}
 	
 
