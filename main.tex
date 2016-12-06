@@ -69,16 +69,18 @@ urlcolor=linkcol,
 \rfoot{Page: \thepage\ of \pageref{end}}
 %frontpage
 \maketitle
-\addcontentsline{toc}{section}{Abstract}
+\addcontentsline{toc}{section}{0\hspace{1em}Abstract}
 \abstract{\subfile{sections/abstract}}
 \thispagestyle{empty}
 %indledning
 \newpage
+\hspace{0cm}
+\vfill
 \begin{multicols}{2}
-
 \tableofcontents
-
-\end{multicols}
+\end{multicols}	
+\vfill
+\hspace{0cm}
 \clearpage
 \setlength{\columnsep}{20pt}
 \begin{multicols}{2}
@@ -98,13 +100,13 @@ urlcolor=linkcol,
 \label{sec:ideation}
 \subfile{sections/ideation.tex}
 
-\section{Market Analysis}
-\label{sec:marketanlysis}
-\subfile{sections/marketanalysis.tex}
-
 \section{Product Definition}
 \label{sec:productDefinition}
 \subfile{sections/productdefinition.tex}
+
+\section{Market Analysis}
+\label{sec:marketanlysis}
+\subfile{sections/marketanalysis.tex}
 
 \section{Business Model}
 \label{sec:businessModel}
