@@ -8,11 +8,13 @@
 \usepackage{lipsum}
 %\usepackage{showframe}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{blindtext}
 \usepackage{multicol}
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage[titletoc,toc,title]{appendix}
+\usepackage[table,xcdraw]{xcolor}
 
 % Font
 \usepackage[default,light,bold]{sourceserifpro}
@@ -68,6 +70,10 @@ urlcolor=linkcol,
 \clearpage
 
 \begin{multicols}{2}
+	
+
+
+
 \section{Introduction}
 \label{sec:intro}
 \subfile{sections/introduction}
@@ -112,18 +118,11 @@ urlcolor=linkcol,
 \listoftables
 \listoffigures
 
-
-
 \end{multicols}
 \label{end}
 \newpage
 \section*{\Huge{Appendices}}
+\subfile{sections/appendices.tex}
 
-\begin{appendices}
-  \renewcommand\thetable{\thesection\arabic{table}}
-  \renewcommand\thefigure{\thesection\arabic{figure}}
-  \section{Test Appendix A} \label{app:a}
-  \section{Test Appendix B} \label{app:b}
-\end{appendices}
 
 \end{document}
