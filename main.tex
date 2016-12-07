@@ -1,29 +1,24 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[top=2cm, bottom=1.5cm, outer=0.7cm, inner=.35cm, heightrounded, marginparwidth=0cm, marginparsep=.5cm, headsep=0.6cm, headheight=1cm, bindingoffset=.50cm, landscape]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{textcomp}
-\usepackage{fancyhdr}
 \usepackage[english]{babel}
-\usepackage{subfiles}
-\usepackage{lipsum}
-%\usepackage{showframe}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{blindtext}
-\usepackage{multicol}
-\usepackage{color}
-\usepackage{hyperref}
+\usepackage[parfill]{parskip}
+
+\usepackage{textcomp, fancyhdr, subfiles, lipsum, graphicx, float, multicol, color, hyperref, tabularx, lastpage}
+
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage[table,xcdraw]{xcolor}
 
 
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{-10pt}
 
 
 % Font
-\usepackage[default,light,bold]{sourceserifpro}
-\usepackage[T1]{fontenc}
+%\usepackage[default,light,bold]{sourceserifpro}
+%\usepackage[T1]{fontenc}
 
-\usepackage{setspace}
+%\usepackage{setspace}
 
 \renewcommand{\baselinestretch}{1.25} 
 
@@ -43,12 +38,24 @@ urlcolor=linkcol,
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
 
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \fancyhead[L]{\includegraphics[height=1cm]{images/sdu-header} Get Hooked}
+  \fancyhead[C]{}
+  \fancyhead[R]{Team West/INC6 - EiT16-theme02}
+
+  \fancyfoot{}
+  \fancyfoot[L]{}
+  \fancyfoot[C]{}
+  \fancyfoot[R]{}
+}
+
 %\makeatletter
 %\let\latexl@section\l@section
 %\def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
 %\makeatother
 
-\title{\huge{Expert in Teams E16 - Business Report}\\\Large{\textit{The Incubator Team 6}}\vfill\includegraphics[width=0.3\textwidth]{images/logo}}
+\title{\huge{\textsc{Expert in Teams E16 - Business Report}}\\\Large{\textit{The Incubator Team 6}}\vfill\includegraphics[width=0.28\textwidth]{images/logo}}
 \author{
 \begin{tabular}{l|c|r}
   Name: & Exam Number & E-Mail \\
@@ -66,12 +73,14 @@ urlcolor=linkcol,
 \fancyhf{}
 \rhead{Team West/INC6 - EiT16-theme02}
 \lhead{\includegraphics[height=1cm]{images/sdu-header} Get Hooked}
-\rfoot{Page: \thepage\ of \pageref{end}}
+\rfoot{Page: \thepage\ of \pageref{end1}}
+\pagenumbering{roman}
 %frontpage
 \maketitle
+\thispagestyle{empty}
 \addcontentsline{toc}{section}{0\hspace{1em}Abstract}
 \abstract{\subfile{sections/abstract}}
-\thispagestyle{empty}
+
 %indledning
 \newpage
 \hspace{0cm}
@@ -81,10 +90,18 @@ urlcolor=linkcol,
 \end{multicols}	
 \vfill
 \hspace{0cm}
+
+\newpage
+\subfile{sections/signatures.tex}
+
+\label{end1}
 \clearpage
 \setlength{\columnsep}{20pt}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\rfoot{Page: \thepage\ of \pageref{end}}
 \begin{multicols}{2}
-	
 
 
 
@@ -100,13 +117,13 @@ urlcolor=linkcol,
 \label{sec:ideation}
 \subfile{sections/ideation.tex}
 
-\section{Product Definition}
-\label{sec:productDefinition}
-\subfile{sections/productdefinition.tex}
-
 \section{Market Analysis}
 \label{sec:marketanlysis}
 \subfile{sections/marketanalysis.tex}
+
+\section{Product Definition}
+\label{sec:productDefinition}
+\subfile{sections/productdefinition.tex}
 
 \section{Business Model}
 \label{sec:businessModel}
@@ -123,22 +140,40 @@ urlcolor=linkcol,
 \section{Conclusion}
 \label{sec:conclusion}
 \subfile{sections/conclusion.tex}
-\end{multicols}
-\addcontentsline{toc}{section}{References}
-\newpage
+\label{end}
 
+\end{multicols}
+
+\clearpage
+\thispagestyle{empty}
+\hspace{0cm}
+\vfill
+\begin{center}
+{\color{gray}\huge{\textsc{Page Left Blank Intentionally}}}
+\end{center}
+\vfill
+\hspace{0cm}
+\clearpage
+\addcontentsline{toc}{section}{References}
+
+\pagenumbering{Alph}
+\setcounter{page}{0}
+
+\rfoot{Page: \thepage\ of \pageref{LastPage}}
 \begin{multicols}{2}
 \bibliographystyle{IEEEtran}
 \bibliography{references.bib}
 \columnbreak
 \listoftables
 \listoffigures
+
 \end{multicols}
 
-\label{end}
-\newpage
-\section*{\Huge{Appendices}}
-\subfile{sections/appendices.tex}
+\clearpage
 
+
+\addcontentsline{toc}{section}{Appendices}
+\subfile{sections/appendices.tex}
+\clearpage
 
 \end{document}
