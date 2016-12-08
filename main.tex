@@ -4,7 +4,7 @@
 \usepackage[english]{babel}
 \usepackage[parfill]{parskip}
 
-\usepackage{textcomp, fancyhdr, subfiles, lipsum, graphicx, float, multicol, color, hyperref, tabularx, lastpage}
+\usepackage{textcomp, fancyhdr, subfiles, lipsum, graphicx, float, multicol, color, hyperref, tabularx, lastpage, enumerate}
 
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage[table,xcdraw]{xcolor}
@@ -86,6 +86,7 @@ urlcolor=linkcol,
 \hspace{0cm}
 \vfill
 \begin{multicols}{2}
+\setcounter{tocdepth}{2}
 \tableofcontents
 \end{multicols}	
 \vfill
@@ -161,18 +162,24 @@ urlcolor=linkcol,
 
 \rfoot{Page: \thepage\ of \pageref{LastPage}}
 \begin{multicols}{2}
+
+\footnotesize{
 \bibliographystyle{IEEEtran}
 \bibliography{references.bib}
 \columnbreak
+
 \listoftables
+
 \listoffigures
+
+}
 
 \end{multicols}
 
 \clearpage
 
 
-\addcontentsline{toc}{section}{Appendices}
+%\addcontentsline{toc}{section}{Appendices}
 \subfile{sections/appendices.tex}
 \clearpage
 
